@@ -1,0 +1,16 @@
+<div class="column">
+  <div class="column__header">
+    <h3 class="column__title"> {{this.column.name}} </h3>
+    <button (click)="openCardCreationDialog()" *ngIf="this.column.canHaveNewCard === true" mat-fab color="warn" aria-label="Example icon button with a home icon">
+      <mat-icon>exposure_plus_1</mat-icon>
+    </button>
+  </div>
+  <div class="column__content">
+    <app-card 
+      *ngFor="let card of this.column.cards"
+      [card]="card"
+      (delete)="deleteCard(card)"
+      ></app-card>
+  </div>
+  
+</div>

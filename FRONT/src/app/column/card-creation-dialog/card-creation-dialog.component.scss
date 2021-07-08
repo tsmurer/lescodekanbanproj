@@ -1,0 +1,23 @@
+.dialog {
+    display:flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__description-input {
+        width: 40rem;
+    }
+
+    &__title-input {
+        width: 40rem;
+    }
+
+    &__action-button {
+        position: relative;
+        width: 8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: linear-gradient(to right, #132e4c, #286076);
+        color: #fff;
+
+    }
+}

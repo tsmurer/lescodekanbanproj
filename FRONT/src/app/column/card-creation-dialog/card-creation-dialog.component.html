@@ -1,0 +1,18 @@
+<div class="dialog">
+  <mat-form-field class="dialog__title-input" appearance="fill" >
+    <mat-label>Título</mat-label>
+    <input matInput [(ngModel)]="this.card.name">
+  </mat-form-field>
+  <mat-form-field class="dialog__description-input" appearance="fill">
+    <mat-label class="dialog__input">Descrição</mat-label>
+    <textarea 
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="2"
+      cdkAutosizeMaxRows="5"
+      [(ngModel)]="this.card.description"
+      ></textarea>
+  </mat-form-field>
+  <button (click)="createCard()" class="dialog__action-button" mat-raised-button [mat-dialog-close]="data.card">Salvar</button>
+</div>
