@@ -1,0 +1,38 @@
+.column {
+    
+    gap: 2rem;
+    width: 40rem;
+    min-height: 8rem;
+
+    background-color: #ebecf0;
+    padding: 1.6rem;
+
+    border-radius: 5px;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 6rem;
+        
+
+        & button {
+            background-color: #f5d01f;
+            color: #000;
+        }
+    }
+
+    &__content {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__title {
+        font-size: 3rem;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

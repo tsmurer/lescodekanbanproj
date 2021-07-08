@@ -1,0 +1,23 @@
+.navbar {
+    height: 6.4rem;
+    width: 100%;
+    background-color: #f5d01f;
+    position: fixed;
+    top: 0;
+
+    &__logo {
+        line-height: 6.4rem;
+        margin-left: 4rem;
+        font-weight: bold;
+        font-size: 3rem;
+        user-select: none;
+        cursor: pointer;
+
+       
+    }
+
+    & a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
