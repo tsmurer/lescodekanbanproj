@@ -28,7 +28,7 @@ export class ColumnComponent implements OnInit {
   }
   // removes card from column, saves changes
   deleteCard(card) {
-    this.column.cards = this.column.cards.filter(c => c.id != card.id);
+    this.column.cards = this.column.cards.filter(c => c.id !== card.id);
     this._cardService.deleteCard(card.id).subscribe();
   }
 
@@ -45,11 +45,9 @@ export class ColumnComponent implements OnInit {
       if(result) {
         this.addCard(result)
       }
-      
+
     });
 
   }
 
-
-  
 }

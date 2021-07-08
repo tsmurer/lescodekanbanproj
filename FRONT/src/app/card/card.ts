@@ -1,5 +1,5 @@
-import { CardComponent } from "./card-component/card.component";
+import { CardComponent } from './card-component/card.component';
 
-export var card = [
+export let card = [
     CardComponent,
 ]

@@ -9,7 +9,7 @@ export class CardService {
 
     url = environment.apiURL
     requestHelper = new RequestHelper();
-    
+
     constructor(
         private http: HttpClient
     ) { }

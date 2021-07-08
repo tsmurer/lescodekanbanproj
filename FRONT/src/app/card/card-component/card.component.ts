@@ -13,14 +13,12 @@ export class CardComponent implements OnInit {
   @Input() card: Card;
   @Output() delete: EventEmitter<Card> = new EventEmitter()
 
-  isEditingMode: boolean = false;
+  isEditingMode = false;
 
   constructor(
     private _service: CardService,
     private _eventService : EventService
-  ) {
-    
-   }
+  ) {}
 
   ngOnInit() {
   }
@@ -49,7 +47,6 @@ export class CardComponent implements OnInit {
   saveEdition() {
     this._service.updateCard(this.card).subscribe();
     this.isEditingMode = false;
-    
-  }
 
+  }
 }

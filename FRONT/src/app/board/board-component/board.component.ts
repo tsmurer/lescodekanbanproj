@@ -46,9 +46,7 @@ export class BoardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
     this.authenticate();
-
     // event service listeners for card emission when moving cards left or right. Can be improved (DRY);
     this._eventService.promotionEventListener().subscribe(card =>{
       this.moveCard(card, true)
@@ -58,26 +56,21 @@ export class BoardComponent implements OnInit {
     })
   }
 
-  loadCards(): void {
-    
-  }
-
-  
   // gets token and stores it in localStorage. calls the get all cards function in sequence.
   authenticate(): void {
     this._authService.authenticate().subscribe(
       resp => {
-        localStorage.setItem("token", resp);
+        localStorage.setItem('token', resp);
         this.getAllCards();
       }
     )
   }
 
-   //gets all cards
+   // gets all cards
   getAllCards() {
     this._cardService.getCards().subscribe(
       resp => {
-        for(let element of resp) {
+        for(const element of resp) {
           const card = {name: element.titulo, description: element.conteudo, columnId: element.lista, id: element.id} as Card;
           this.cards.push(card);
         }
@@ -88,18 +81,18 @@ export class BoardComponent implements OnInit {
 
   // gets card current column, next or previous column depending on forward boolean and moves the card, saving changes
   moveCard(card: Card, forward: boolean) {
-    let current_col = this.columns.find(col => col.id === card.columnId);
-    if(current_col){
-      if(forward && current_col.nextCol) {
-        card.columnId = current_col.nextCol;
-      } else if(!forward && current_col.prevCol){
-        card.columnId = current_col.prevCol
+    const currentCol = this.columns.find(col => col.id === card.columnId);
+    if(currentCol){
+      if(forward && currentCol.nextCol) {
+        card.columnId = currentCol.nextCol;
+      } else if(!forward && currentCol.prevCol){
+        card.columnId = currentCol.prevCol
       }
-      const receiving_col = this.columns.find(col => col.id === card.columnId);
+      const receivingCol = this.columns.find(col => col.id === card.columnId);
       this._cardService.updateCard(card).subscribe(
         (resp) => {
-          current_col.cards = current_col.cards.filter(c => c !== card);
-          receiving_col.cards.push(card)
+          currentCol.cards = currentCol.cards.filter(c => c !== card);
+          receivingCol.cards.push(card)
         }
      )
     }
@@ -107,7 +100,7 @@ export class BoardComponent implements OnInit {
 
   // allocates cards in their columns
   allocateCards() {
-    for(let column of this.columns) {
+    for(const column of this.columns) {
       column.cards = this.cards.filter(card => card.columnId === column.id);
     }
   }

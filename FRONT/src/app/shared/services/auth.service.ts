@@ -14,7 +14,7 @@ export class AuthService {
 
 
   authenticate() {
-    return this.http.post<any>(this.authUrl, { "login": environment.defaultLogin, "senha":environment.defaultPassword })
+    return this.http.post<any>(this.authUrl, { login: environment.defaultLogin, senha: environment.defaultPassword })
   }
 
 }

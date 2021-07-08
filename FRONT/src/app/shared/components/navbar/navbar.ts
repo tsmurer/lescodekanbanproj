@@ -1,5 +1,5 @@
-import { NavbarComponent } from "./navbar-component/navbar.component";
+import { NavbarComponent } from './navbar-component/navbar.component';
 
-export var navbar = [
+export let navbar = [
     NavbarComponent,
 ]
