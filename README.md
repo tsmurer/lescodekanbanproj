@@ -1,5 +1,5 @@
 # let's code kanban proj
-Um projeto de Front-End de Kanban para o desafio da Let's Code
+Um projeto Front-End de Kanban para o desafio da Let's Code
 
 # para executar
 
